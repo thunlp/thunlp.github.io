@@ -1,0 +1,19 @@
+Matching the Blanks	https://arxiv.org/abs/1906.03158		Google Research	(Feb 26, 2019)	93.86	97.06	89.20	94.27
+Anonymous Groundhog				(Nov 3, 2019)	90.31	94.28	85.48	90.51
+Anonymous Pony				(Jan 17, 2020)	91.61	96.01	86.78	91.63
+Anonymous Python				(Nov 3, 2019)	88.30	95.94	81.10	92.67
+BERT-PAIR	https://www.aclweb.org/anthology/D19-1649.pdf	https://github.com/thunlp/fewrel	THUNLP, Tsinghua University	(Nov 3, 2019)	88.32	93.22	80.63	87.02
+MLMAN	https://arxiv.org/abs/1906.06678	https://github.com/ZhixiuYe/MLMAN	NEL-SLIP, University of Science and Technology of China	(Jan 10, 2019)	82.98	92.66	73.59	87.29
+PLATO			Primer.ai	(Nov 19, 2019)	82.93	91.76	74.41	85.91
+Prototypical Network (LM-Transformer)			LAVIS, University of Applied Sciences RheinMain	(Jan 18, 2019)	81.40	92.11	72.51	86.03
+TDCN			Anonymous	(Jul 23, 2019)	81.93	92.08	72.18	85.98
+LM-ProtoNet (FGM)			Anonymous	(Feb 15, 2019)	76.60	89.31	65.31	82.10
+Prototypical Network (CNN)					74.52	88.40	62.38	80.45
+SNAIL (CNN)					67.29	79.40	53.28	68.33
+GNN (CNN)					66.23	81.28	46.27	64.02
+Meta Network (CNN)					64.46	80.57	53.96	69.23
+kNN (PCNN)					60.28	72.41	46.15	59.11
+kNN (CNN)					54.67	68.77	41.24	55.87
+Finetune (CNN)					44.21	68.66	27.30	55.04
+Finetune (PCNN)					45.64	57.86	29.65	37.43
+Anonymous Rabbit				(Mar 3, 2020)	83.47	92.31	73.64	85.30
