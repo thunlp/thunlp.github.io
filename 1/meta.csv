@@ -17,3 +17,4 @@ kNN (CNN)					54.67	68.77	41.24	55.87
 Finetune (CNN)					44.21	68.66	27.30	55.04
 Finetune (PCNN)					45.64	57.86	29.65	37.43
 Anonymous Rabbit				(Mar 3, 2020)	83.47	92.31	73.64	85.30
+bert+maml(CNN)			Yanshan ISE	(Mar 17, 2020)	77.21	88.07	65.90	80.06
