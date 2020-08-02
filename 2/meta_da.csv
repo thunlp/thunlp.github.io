@@ -7,3 +7,4 @@ Proto-ADV (BERT)	https://www.aclweb.org/anthology/D19-1649.pdf	https://github.co
 Proto-BERT				(Nov 3, 2019)	40.12	51.50	26.45	36.93
 Proto-CNN				(Nov 3, 2019)	35.09	49.37	22.98	35.22
 PAMN			Anonymous	(Jun 8, 2020)	77.54	90.40	65.98	82.03
+DualGraph			Anonymous	(Aug 2, 2020)	80.11	91.01	73.89	82.34
