@@ -1,3 +1,4 @@
 BERT-PAIR	https://www.aclweb.org/anthology/D19-1649.pdf	https://github.com/thunlp/fewrel	THUNLP, Tsinghua University	(Nov 3, 2019)	77.67	84.19	80.31	86.06
 Proto (BERT)				(Nov 3, 2019)	70.02	83.79	45.94	75.21
 Proto (CNN)				(Nov 3, 2019)	60.59	77.79	40.00	61.66
+Anonymous Cat				(Aug 7, 2020)	79.06	85.52	81.69	87.74
