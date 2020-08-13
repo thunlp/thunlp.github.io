@@ -495,7 +495,6 @@ pre.line-numbers > code {
 <li><p>If you already have an account, please <a href="https://worksheets.codalab.org/account/login">sign in</a>. </p>
 
 <p><img src="2.png"/ width="60%"></p></li>
-<li><p>More details can be found in <a href="https://github.com/codalab/codalab-worksheets/wiki/Quickstart">quick start</a>.</p></li>
 </ol>
 
 <h3 id="toc_3">Step 1: Create a CodaLab worksheet</h3>
@@ -568,52 +567,42 @@ python evaluate.py predict.json output.json</code></pre></div>
 <p><img src="10.png"/ width="60%"></p></li>
 </ol>
 
-<h2 id="toc_7">Evaluating on the test set</h2>
+<h2 id="toc_7">Submitting a test set evaluation request</h2>
 
-<p>To preserve the integrity of test results, we do not release the test set to the public. Instead, we require you to upload your model onto CodaLab so that we can run it on the test set for you. Before evaluating your models on the test set, make sure you have completed evaluation of development set as detailed above. Thus we will assume you are already familiar with uploading files and running commands on CodaLab. Note that, our evaluation script is similar to the one used in the public <a href="https://worksheets.codalab.org/worksheets/0x64d60f13fc6b49a59c381f6b0dd9ab68/">worksheet</a>.</p>
+<p>To preserve the integrity of test results, we do not release the test set to the public. Instead, we require you to upload your model onto CodaLab so that we can run it on the test set for you. Before evaluating your models on the test set, make sure you have completed evaluation of development set as detailed above. Thus we will assume you are already familiar with uploading files and running commands on CodaLab. Note that, we request you to use our provided data sampling file sample_io.py (FewRel 1.0 and FewRel 2.0 DA) / sample_io_nota.py (FewRel 2.0 NOTA) and evaluation file evaluate.py in <a href="https://worksheets.codalab.org/worksheets/0xecafe23758774db4835ca82ba66da30a/">this worksheet</a>.</p>
 
-<h3 id="toc_8">Step 0: Upload your own models and parameters</h3>
+<h3 id="toc_8">Step 0: Upload your own models and make sure they can run on the dev set</h3>
 
-<p>This step is similar to the step for the dev set.</p>
+<h3 id="toc_9">Step 1: Submit an evaluation request</h3>
 
-<h3 id="toc_9">Step 1: Run your trained model on the dev set</h3>
+Make sure you fulfill all the following requirements before submitting:
 
-<p>This step is similar to the step for the dev set.</p>
+<ol>
+<li>You have tested your scripts on the dev set.</li>
+<li>All your codes / checkpoints are set to appropriate permission so we can access.</li>
+<li>
+You use the following files:
+    <ol>
+    <li>sample_io.py:0x2a02b4 or sample_io_nota.py:0x0e4467</li>
+    <li>evaluate.py:0x1f8837</li>
+    <li>data:0xbac6f7</li>
+    </ol>
+Note that data:0xbac6f7 is private so only we have the access. 
+</li>
+<li>
+Data sampling requirements: 
+    <ol>
+<li>For FewRel 1.0: use "python sample_io.py data/test_wiki.json 10000 N K 12345 input" to sample data, where N K = 5 1 / 5 5 / 10 1 / 10 5 </li>
+<li>For FewRel 2.0 DA: use "python sample_io.py data/test_pubmed.json 10000 N K 12345 input" to sample data, where N K = 5 1 / 5 5 / 10 1 / 10 5 </li>
+<li>For FewRel 2.0 NOTA: use "python sample_io_nota.py data/test_wiki.json 10000 N K NOTA 12345 input" to sample data, where N K NOTA = 5 1 0.15 / 5 5 0.15 / 5 1 0.5 / 5 5 0.5 </li>
+</li></ol>
+</ol>
 
-<h3 id="toc_10">Step 2: Submission</h3>
+If all requirements are met, please fill out the <a href="https://forms.gle/JXbufTCkPTUF8FrZA">submission form</a> and we will evaluate your model within one week. If you want us to evaluate on multiple models or challenges, please submit multiple forms.
 
-<p>Send a short email to <code>fewrel@googlegroups.com</code> with links to your bundles like:</p>
+We will require you to provide codalab script (starting with "cl run"). An example for the script is:
 
-<div><pre class="line-numbers"><code class="language-none">...
-...
-checkpoint : 
-    cl add bundle 0x9f3d8ff57ebd4449a73a10c9296a15c9 。
-test_demo.py :
-    cl add bundle 0x8fa33534a6524b24a29254dc86361823 .
-
-...
-...</code></pre></div>
-
-<p>You are also required to email us your evaluation script, commands, and docker information like:</p>
-
-<div><pre class="line-numbers"><code class="language-none">cl run &#39;data:0x22dc32&#39; &#39;sample_io.py:0x2a02b4&#39; &#39;evaluate.py:0x1f8837&#39; \\
-&#39;checkpoint:0x9f3d8f&#39; &#39;fewshot_re_kit:0x70219b&#39; &#39;_processed_data:0xb636c7&#39; \\
- &#39;models:0xbe1716&#39; &#39;test_demo.py:0x8fa335&#39; \\
-&#39;evaluate.sh:0xda5e83&#39; &#39;bash evaluate.sh&#39;  --request-docker-image codalab/default-cpu</code></pre></div>
-
-<p>or</p>
-
-<div><pre class="line-numbers"><code class="language-none">cl run &#39;data:0x22dc32&#39; &#39;sample_io.py:0x2a02b4&#39; &#39;evaluate.py:0x1f8837&#39; \\
-&#39;checkpoint:0x9f3d8f&#39; &#39;fewshot_re_kit:0x70219b&#39; &#39;_processed_data:0xb636c7&#39; \\
- &#39;models:0xbe1716&#39; &#39;test_demo.py:0x8fa335&#39; \\
-&#39;evaluate.sh:0xda5e83&#39; &#39;bash evaluate.sh&#39;  \\
---request-docker-image codalab/default-gpu --request-gpus 1 --request-disk 6g --request-time 2d</code></pre></div>
-
-<p>If you want your models&#39; result to be listed on the public leaderboard. Please also send us the model name and your affiliation. It would be even better if you could provide a link to your published paper, preprints, website or blogs, describing your submitted model. </p>
-
-<p>Please give up to several days for us to evaluate your model, and give your response.</p>
-
-<hr>
+<div><pre class="line-numbers"><code class="language-none">cl run &#39;data:0xbac6f7&#39; &#39;sample_io.py:0x2a02b4&#39; &#39;evaluate.py:0x1f8837&#39; &#39;checkpoint:0x9f3d8f&#39; &#39;fewshot_re_kit:0x70219b&#39; &#39;_processed_data:0xb636c7&#39;  &#39;models:0xbe1716&#39; &#39;test_demo.py:0x8fa335&#39; &#39;evaluate.sh:0xda5e83&#39; &#39;bash evaluate.sh&#39; --request-docker-image codalab/default-gpu --request-gpus 1 --request-disk 2g --request-time 2d</code></pre></div>
 
 <p>Should you have any questions, please send an email to <code>fewrel@googlegroups.com</code>.</p>
 
