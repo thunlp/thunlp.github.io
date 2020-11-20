@@ -21,3 +21,4 @@ bert+maml(CNN)			Yanshan ISE	(Mar 17, 2020)	77.21	88.07	65.90	80.06
 PAMN			Anonymous	(Jun 8, 2020)	90.10	95.22	84.13	90.58
 anonymous venetian			Anonymous	(Jun 13, 2020)	82.71	82.73	67.53	68.22
 GTP			Anonymous	(Aug 15, 2020)	89.43	97.02	84.41	93.84
+CTEG	https://arxiv.org/pdf/2010.10894.pdf		JD AI Research	(Nov 20, 2020)	88.11	95.25	81.29	91.33
